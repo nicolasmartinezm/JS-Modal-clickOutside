@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>clickOutside</title>
+  </head>
+
+  <body>
+    <div class="cards">
+      <div class="card" data-description="Nicolas is cool">
+        <img src="https://picsum.photos/200?random=1" />
+        <h2>Nicolas Martinez</h2>
+        <button>Learn more →</button>
+      </div>
+      <div class="card" data-description="Rafael is neat!">
+        <img src="https://picsum.photos/200?random=2" />
+        <h2>Rafael Martinez</h2>
+        <button>Learn more →</button>
+      </div>
+      <div class="card" data-description="Tyler is fun!">
+        <img src="https://picsum.photos/200?random=3" />
+        <h2>Tyler Halvorsen</h2>
+        <button>Learn more →</button>
+      </div>
+      <div class="card" data-description="Chad is a human!">
+        <img src="https://picsum.photos/200?random=4" />
+        <h2>Chad Bermudez</h2>
+        <button>Learn more →</button>
+      </div>
+    </div>
+
+    <div class="modal-outer">
+      <div class="modal-inner">
+        <p>TEsting 123</p>
+      </div>
+    </div>
+
+    <style>
+      body {
+        background: lightblue;
+      }
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-gap: 20px;
+        padding: 2rem;
+      }
+
+      .card {
+        background: white;
+        padding: 1rem;
+        border-radius: 15px;
+      }
+
+      .card img {
+        width: 100%;
+      }
+
+      .card h2 {
+        color: black;
+        font-family: Helvetica, sans-serif;
+      }
+      p {
+        font-family: Helvetica, sans-serif;
+        font-size: 20px;
+      }
+      button {
+        background-color: blueviolet;
+        color: white;
+        padding: 15px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 20px;
+      }
+
+      .modal-outer {
+        display: grid;
+        background: hsla(50, 100%, 50%, 0.7);
+        position: fixed;
+        height: 100vh;
+        width: 100vw;
+        top: 0;
+        left: 0;
+        justify-content: center;
+        align-items: center;
+        /* Hide this modal until we need it */
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.2s;
+      }
+
+      .modal-outer img {
+        width: 100%;
+      }
+
+      .modal-outer.open {
+        opacity: 1;
+        pointer-events: all;
+      }
+
+      .modal-inner {
+        max-width: 500px;
+        min-width: 300px;
+        padding: 2rem;
+        border-radius: 5px;
+        min-height: 200px;
+        background: white;
+        transform: translateY(-200%);
+        transition: transform 2s;
+        border-radius: 15px;
+      }
+
+      .modal-outer.open .modal-inner {
+        transform: translateY(0);
+      }
+    </style>
+    <script src="./click-outside.js"></script>
+  </body>
+</html>
